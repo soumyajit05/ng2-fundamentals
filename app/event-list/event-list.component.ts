@@ -5,8 +5,12 @@ import { Component } from '@angular/core'
     // templateUrl: `/app/event-list/event-list.component.html`
     template:
     `<div>       
-    <h1><event-thumbnail  (buttonClick)="buttonClick($event)"
+    <h1><event-thumbnail #thumbnail (buttonClick)="buttonClick($event)"
     [event]="events"></event-thumbnail></h1>
+    <h4>{{thumbnail.templateVariable}}</h4>
+    <h4>
+    <button (click)="thumbnail.fooInsideThumbnail()">Test Template Variables</button>
+    </h4>
     </div>
     `
 })

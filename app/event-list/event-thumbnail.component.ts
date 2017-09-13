@@ -20,9 +20,14 @@ export class eventThumbnailComponent {
     @Input() location: string;
     @Output() thumbnailTitle = `Angular 4 component`;
     @Output() buttonClick = new EventEmitter();
+    templateVariable: any = `Access child using template variables`;
 
     clickMe() {
         console.log(`Inside Event Thumbnail`);
         this.buttonClick.emit(this.event.startDate);
+    }
+
+    fooInsideThumbnail() {
+        console.log((`Using template variables`));
     }
 }
