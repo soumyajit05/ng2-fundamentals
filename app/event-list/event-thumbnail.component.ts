@@ -5,7 +5,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
     template:
     `
     <hr> Hosted at {{location}}
-    <hr> timeline - {{event.startDate}} -- {{event.endDate}}
+    <hr> timeline - {{myEvent.startDate}} -- {{myEvent.endDate}}
 
     <div>
     <h4>
@@ -16,7 +16,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
 })
 
 export class eventThumbnailComponent {
-    @Input() event: any;
+    @Input() myEvent: any;
     @Input() location: string;
     @Output() thumbnailTitle = `Angular 4 component`;
     @Output() buttonClick = new EventEmitter();
@@ -24,7 +24,7 @@ export class eventThumbnailComponent {
 
     clickMe() {
         console.log(`Inside Event Thumbnail`);
-        this.buttonClick.emit(this.event.startDate);
+        this.buttonClick.emit(this.myEvent.startDate);
     }
 
     fooInsideThumbnail() {

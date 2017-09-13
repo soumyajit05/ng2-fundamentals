@@ -6,7 +6,7 @@ import { Component } from '@angular/core'
     template:
     `<div>       
     <h1><event-thumbnail #thumbnail (buttonClick)="buttonClick($event)"
-    [event]="events"></event-thumbnail></h1>
+    [myEvent]="events1"></event-thumbnail></h1>
     <h4>{{thumbnail.templateVariable}}</h4>
     <h4>
     <button (click)="thumbnail.fooInsideThumbnail()">Test Template Variables</button>
@@ -17,7 +17,7 @@ import { Component } from '@angular/core'
 
 export class eventListComponent {
 
-    events = {
+    events1 = {
         startDate: `1st November, 2017`,
         endDate: `25th December, 2018`
     };
