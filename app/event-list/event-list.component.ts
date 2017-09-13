@@ -5,7 +5,8 @@ import { Component } from '@angular/core'
     // templateUrl: `/app/event-list/event-list.component.html`
     template:
     `<div>       
-    <h1><event-thumbnail [event]="events"></event-thumbnail></h1>
+    <h1><event-thumbnail  (buttonClick)="buttonClick($event)"
+    [event]="events"></event-thumbnail></h1>
     </div>
     `
 })
@@ -18,4 +19,8 @@ export class eventListComponent {
     };
 
     location: string = `Las Vegas`;
+
+    buttonClick(data) {
+        console.log(`event starting on ${data}`);
+    }
 }
