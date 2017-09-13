@@ -4,10 +4,12 @@ import { Component } from '@angular/core'
     selector: 'event-list',
     // templateUrl: `/app/event-list/event-list.component.html`
     template:
-    `<div>       
+    `<div>
     <h1><event-thumbnail #thumbnail (buttonClick)="buttonClick($event)"
-    [myEvent]="events1"></event-thumbnail></h1>
-    <h4>{{thumbnail.templateVariable}}</h4>
+    [myEvent]="events1" [location]="location"></event-thumbnail></h1>
+    <div class="divStyle">
+        <h4>{{thumbnail.templateVariable}}</h4>
+    </div>
     <h4>
     <button (click)="thumbnail.fooInsideThumbnail()">Test Template Variables</button>
     </h4>
