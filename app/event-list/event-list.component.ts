@@ -10,7 +10,7 @@ import { Component } from '@angular/core'
                 [myEvent]="events"
                 [location]="location"> 
             </event-thumbnail>
-            <h4>template : {{thumbnail.templateVariable}}</h4>
+            <h4>template : {{thumbnail?.templateVariable}}</h4>
             <button (click)="thumbnail.fooInsideThumbnail()">Test Template Variables</button>
         </div>
     </div>
@@ -27,6 +27,10 @@ export class eventListComponent {
         {
             startDate: `1st January, 2017`,
             endDate: `25th February, 2018`
+        },
+        {
+
+            endDate: `4th October, 198`
         }
     ];
 
