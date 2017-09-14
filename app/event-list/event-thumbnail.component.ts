@@ -5,14 +5,13 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
     template:
     `
     <div class="divstyle">
-    <h4>Child class [Thumbnail]</h4>
         <hr> Hosted at {{location}}
         <hr> timeline - {{myEvent.startDate}} -- {{myEvent.endDate}}
     </div>
     <div>
-    <h4>
-    <button id="btn1" (click)="clickMe()">Click me !!</button>
-    </h4>
+        <h4>
+            <button id="btn1" (click)="clickMe()">Click me !!</button>
+        </h4>
     </div>
     `,
     styles: [`
