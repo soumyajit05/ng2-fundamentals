@@ -6,7 +6,13 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
     `
     <div class="divstyle">
         <hr> Hosted at {{location}}
-        <hr> timeline - {{myEvent.startDate}} -- {{myEvent.endDate}}
+        <hr> timeline - {{myEvent?.startDate}} -- {{myEvent.endDate}}
+        <div *ngIf="myEvent?.website">
+                event website - {{myEvent?.website}}
+        </div>
+        <div [hidden]="!myEvent?.cost">
+                event cost - {{myEvent?.cost}}
+        </div>
     </div>
     <div>
         <h4>
