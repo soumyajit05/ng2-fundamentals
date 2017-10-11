@@ -1,4 +1,5 @@
-import { Component } from '@angular/core'
+import { Component } from '@angular/core';
+import { EventService } from '../service/event-service';
 
 @Component({
     selector: 'event-list',
@@ -12,6 +13,7 @@ import { Component } from '@angular/core'
             </event-thumbnail>
             <h4>template : {{thumbnail?.templateVariable}}</h4>
             <button (click)="thumbnail.fooInsideThumbnail()">Test Template Variables</button>
+            <h5>Food Service : {{eventsFoodService}}</h5>
         </div>
     </div>
     `
@@ -19,25 +21,15 @@ import { Component } from '@angular/core'
 
 export class eventListComponent {
 
-    events1 = [
-        {
-            startDate: `1st November, 2017`,
-            endDate: `25th December, 2018`,
-            cost: `$250`,
-            startTime: '8:00 am'
-        },
-        {
-            startDate: `1st January, 2017`,
-            endDate: `25th February, 2018`,
-            cost: `$150`,
-            startTime: '10:00 am'
-        },
-        {
+    eventsFoodService: string;
+    events1: any[];
 
-            endDate: `4th October, 198`,
-            startTime: '9:00 am'
-        }
-    ];
+    constructor(private eventService: EventService) {
+        this.eventsFoodService = eventService.getEventsFood();
+        this.events1 = eventService.getAllEvents();
+    }
+
+
 
     location: string = `Las Vegas`;
 

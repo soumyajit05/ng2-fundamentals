@@ -13,8 +13,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
         <div [hidden] ="!myEvent?.cost">
                <span > event cost - {{myEvent?.cost}}</span>
         </div>
-        <div [ngSwitch] = myEvent?.startTime>
-            <span *ngSwitchCase = "'8:00 am'"> {{myEvent.startTime}} - Early Start</span>
+        <div [ngSwitch] [class.green]= myEvent?.startTime>
+            <span *ngSwitchCase  = "'8:00 am'"> {{myEvent.startTime}} - Early Start</span>
             <span *ngSwitchCase = "'10:00 am'"> {{myEvent.startTime}} - Late Start</span>
             <span *ngSwitchDefault> {{myEvent.startTime}} - Casual</span>
         </div>
@@ -26,8 +26,9 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
     </div>
     `,
     styles: [`
-            .divstyle div {color : red;}`
-    ]
+            .divstyle  {color : red;}
+            .green span {color: green; !important}
+            `]
 })
 
 export class eventThumbnailComponent {
