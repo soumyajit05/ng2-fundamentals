@@ -4,7 +4,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
     selector: 'event-thumbnail',
     template:
     `
-    <div class="divstyle">
+    <div class="well hoverwell thumbnail" [routerLink] = "['/events', myEvent.id]">
         <hr> Hosted at {{location}}
         <hr> timeline - {{myEvent?.startDate}} -- {{myEvent.endDate}}
         <div *ngIf="myEvent?.website">
@@ -35,12 +35,12 @@ export class eventThumbnailComponent {
     @Input() myEvent: any;
     @Input() location: string;
     @Output() thumbnailTitle = `Angular 4 component`;
-    @Output() buttonClick = new EventEmitter();
+    @Output() buttonClick1 = new EventEmitter();
     templateVariable: any = `Access child using template variables`;
 
     clickMe() {
         console.log(`Inside Event Thumbnail`);
-        this.buttonClick.emit(this.myEvent.startDate);
+        this.buttonClick1.emit(this.myEvent.startDate);
     }
 
     fooInsideThumbnail() {

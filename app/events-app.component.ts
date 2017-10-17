@@ -5,7 +5,9 @@ import { Component, OnInit } from '@angular/core';
     //template: `<h1>Event App Component loaded</h1>`
     template: `
                 <nav-bar></nav-bar>
-                <event-list></event-list>`
+               <!-- <event-list></event-list> -->
+               <router-outlet></router-outlet>
+                `
 })
 
 export class eventAppComponent implements OnInit {

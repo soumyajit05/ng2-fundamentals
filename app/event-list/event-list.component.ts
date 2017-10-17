@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { EventService } from '../service/event-service';
 
 @Component({
@@ -7,7 +7,7 @@ import { EventService } from '../service/event-service';
     template:
     `<div>
         <div class="divStyle" *ngFor="let events of events1" >
-            <event-thumbnail #thumbnail (buttonClick)="buttonClick($event)"
+            <event-thumbnail #thumbnail (buttonClick1)="buttonClick($event)"
                 [myEvent]="events"
                 [location]="location"> 
             </event-thumbnail>
@@ -19,17 +19,19 @@ import { EventService } from '../service/event-service';
     `
 })
 
-export class eventListComponent {
+export class eventListComponent implements OnInit {
 
     eventsFoodService: string;
     events1: any[];
 
     constructor(private eventService: EventService) {
-        this.eventsFoodService = eventService.getEventsFood();
-        this.events1 = eventService.getAllEvents();
+
     }
 
-
+    ngOnInit() {
+        this.eventsFoodService = this.eventService.getEventsFood();
+        this.events1 = this.eventService.getAllEvents();
+    }
 
     location: string = `Las Vegas`;
 
