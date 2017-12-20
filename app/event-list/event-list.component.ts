@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../service/event-service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'event-list',
@@ -24,13 +25,17 @@ export class eventListComponent implements OnInit {
     eventsFoodService: string;
     events1: any[];
 
-    constructor(private eventService: EventService) {
+    constructor(private eventService: EventService, private activateROute: ActivatedRoute) {
 
     }
 
     ngOnInit() {
         this.eventsFoodService = this.eventService.getEventsFood();
-        this.events1 = this.eventService.getAllEvents();
+        // this.events1 = this.eventService.getAllEvents();
+        this.eventService.getAllEvents().subscribe(events => { this.events1 = events })
+
+        //this.events1 = this.activateROute.snapshot.data['events'];
+        //alert(this.activateROute.snapshot.data[0]);
     }
 
     location: string = `Las Vegas`;
