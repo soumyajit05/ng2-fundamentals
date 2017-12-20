@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
-import { Subject } from 'rxjs/RX';
+import { Subject, Observable } from 'rxjs/RX';
+import {IEvent} from './event-model';
 
 @Injectable()
 export class EventService {
@@ -8,7 +9,7 @@ export class EventService {
         return `Food Service will be provided during events`;
     }
 
-    getAllEvents() {
+    getAllEvents():Observable<any> {
         let subject = new Subject<any>();
         setTimeout(() => { subject.next(this.events1); subject.complete() }, 10);
         // return this.events1;
@@ -24,10 +25,10 @@ export class EventService {
     events1 = [
         {
             id: 1,
-            startDate: `1st November, 2017`,
-            endDate: `25th December, 2018`,
-            cost: `$250`,
-            startTime: '8:00 am'
+            startDate:  (`1st November, 2017`),
+            endDate:  (`25th December, 2018`),
+            cost: 250,
+            startTime: ('8:00 am')
         },
         {
             id: 2,
@@ -42,5 +43,27 @@ export class EventService {
             startTime: '9:00 am'
         }
     ];
-
 }
+const events2:IEvent[] = [ // Using model for Type safety
+    {
+        id: 1,
+        startDate:  new Date('5/4/2017'),
+        endDate:  new Date(`12/25/2017`),
+        cost: '$250',
+        startTime: ('8:00 am')        
+    },
+    {
+        id: 2,
+        startDate:  new Date('1/1/2017'),
+        endDate:  new Date(`2/2/2017`),
+        cost: '$500',
+        startTime: ('10:00 am')
+    },
+    {
+        id: 1,
+        startDate:  new Date('4/4/2017'),
+        endDate:  new Date(`4/12/2017`),
+        cost: '$100',
+        startTime: ('9:00 am')
+    }
+];
