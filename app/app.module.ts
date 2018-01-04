@@ -12,12 +12,13 @@ import { createEvent } from './event-details/create-event.component';
 import { Error404Component } from './errors/404.component';
 import { routeguard } from './service/event-route-activator.service';
 import { eventslistresolver } from './service/events-list-resolver.service';
+import { AuthService } from './users/auth-service';
 
 @NgModule({
     imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
     declarations: [eventAppComponent, eventListComponent, eventThumbnailComponent,
         navbarComponent, eventDetails, createEvent, Error404Component],
-    providers: [EventService, routeguard, eventslistresolver,
+    providers: [EventService, AuthService, routeguard, eventslistresolver,
         {
             provide: 'canDeactivateCreateEvent',
             useValue: stopNavigation

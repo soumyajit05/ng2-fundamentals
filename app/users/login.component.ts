@@ -1,5 +1,7 @@
 import { Component } from "@angular/core";
 import { templateJitUrl } from "@angular/compiler";
+import { AuthService } from './auth-service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'login-component',
@@ -8,8 +10,18 @@ import { templateJitUrl } from "@angular/compiler";
 
 export class loginComponent {
 
-    login(formdata) {
-        console.log(formdata);
+    constructor(private authService: AuthService, private router: Router) {
+
     }
 
+    login(formdata) {
+        console.log(this.authService.isAuthenticated());
+        this.authService.login(formdata.userName, formdata.password);
+        console.log(this.authService.isAuthenticated());
+        this.router.navigate(['events']);
+    }
+
+    cancel() {
+        this.router.navigate(['events']);
+    }
 }
